@@ -1,0 +1,18 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'commons-io', name: 'commons-io', version: '2.11.0'
+    }
+}
+
+import org.apache.commons.io.FileUtils
+
+tasks.register('sample') {
+    group 'Sample'
+    doFirst {
+        def userDir = FileUtils.getUserDirectory()
+        println userDir.toString()
+    }
+}

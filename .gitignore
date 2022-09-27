@@ -1,0 +1,15 @@
+/.settings/
+/.classpath
+/.project
+/.gradle/
+/.vscode/
+
+/target/
+/build/
+/bin/
+
+*.log
+*.loc.bat
+*.loc.sh
+
+lombok.config
