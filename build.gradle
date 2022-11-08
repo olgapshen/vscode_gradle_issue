@@ -1,2 +1,21 @@
+/*buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.fasterxml.jackson.core:jackson-databind:2.14.0'
+    }
+}
+
+import com.fasterxml.jackson.databind.util.RawValue
+
+tasks.register('dbschema') {
+    group 'Sample'
+    doFirst {
+        def value = new RawValue("GradleIssue")
+        println value.rawValue()
+    }
+}*/
+
 apply from: "$projectDir/gradle/db.gradle"
 apply from: "$projectDir/gradle/sample.gradle"

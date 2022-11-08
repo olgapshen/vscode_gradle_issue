@@ -1,29 +1,18 @@
 buildscript {
     repositories {
-        maven {
-            name = 'GitLab'
-            url = 'https://valkovesi.ru/api/v4/projects/1/packages/maven'
-            credentials(HttpHeaderCredentials) {
-                name = 'Deploy-Token'
-                value = 'xxxxxxxxxxxxxxxxxxxx'
-            }
-            authentication {
-                header(HttpHeaderAuthentication)
-            }
-        }
         mavenCentral()
     }
     dependencies {
-        classpath group: 'ru.valkovesi', name: 'dbschema', version: '0.1'
+        classpath 'com.fasterxml.jackson.core:jackson-databind:2.14.0'
     }
 }
 
-import ru.valkovesi.helpers.FileSystemHelper
+import com.fasterxml.jackson.databind.util.RawValue
 
 tasks.register('dbschema') {
     group 'Sample'
     doFirst {
-        def helper = new FileSystemHelper()
-        helper.PrintTest()
+        def value = new RawValue("GradleIssue")
+        println value.rawValue()
     }
 }
